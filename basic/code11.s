@@ -135,23 +135,21 @@ noteve	sta highds
 	iny
 	sta arytab
 	sty arytab+1
-	ldy #0
 	lda varnam
-	sta (lowtr),y
-	iny
+	sta (lowtr)
+	ldy #1
 	lda varnam+1
 	sta (lowtr),y
-	lda #0
 	iny
-	sta (lowtr),y
+	stz (lowtr),y
 	iny
-	sta (lowtr),y
+	stz (lowtr),y
 	iny
-	sta (lowtr),y
+	stz (lowtr),y
 	iny
-	sta (lowtr),y
+	stz (lowtr),y
 	iny
-	sta (lowtr),y
+	stz (lowtr),y
 finptr	lda lowtr
 	clc
 	adc #2
