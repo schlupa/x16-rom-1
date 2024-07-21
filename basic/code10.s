@@ -19,8 +19,7 @@ isvret	sta facmo
 	lda valtyp
 	bne :+
 	jmp gooo
-:	lda #0
-	sta facov
+:	stz facov
 	jsr tstrom      ;see if an array
 	bcc tstr10      ;don't test st(i),ti(i)
 	cpx #'T'
@@ -80,8 +79,7 @@ isvret	sta facmo
 	sta lofbuf+4 ; SS
 	pla
 	sta lofbuf+5 ; SS
-	lda #0
-	sta lofbuf+6 ; Z
+	stz lofbuf+6 ; Z
 
 	jmp strlitl
 
@@ -148,8 +146,7 @@ tstr10	cpx #'D'
 	sta lofbuf+6 ; DD
 	pla
 	sta lofbuf+7 ; DD
-	lda #0
-	sta lofbuf+8 ; Z
+	stz lofbuf+8 ; Z
 
 	jmp strlitl
 
@@ -169,10 +166,9 @@ tstr11	rts
 
 gooo	bit intflg
 	bpl gooooo
-	ldy #0
-	lda (facmo),y
+	lda (facmo)
 	tax
-	iny
+	ldy #1
 	lda (facmo),y
 	tay
 	txa
@@ -239,8 +235,7 @@ nesct3
 	jsr frmevl
 	jsr chkcom
 	jsr chkstr
-	pla
-	tax
+	plx
 	lda facmo+1
 	pha
 	lda facmo
@@ -254,8 +249,7 @@ nesct3
 	pha
 	jmp fingo
 oknorm	jsr parchk
-	pla
-	tay
+	ply
 fingo	lda fundsp-onefun-onefun+256,y
 	sta jmper+1
 	lda fundsp-onefun-onefun+257,y
