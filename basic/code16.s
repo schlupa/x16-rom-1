@@ -29,10 +29,9 @@ fretmp	sta index
 	sty index+1
 	jsr fretms
 	php
-	ldy #0
-	lda (index),y
+	lda (index)
 	pha
-	iny
+	ldy #1
 	lda (index),y
 	tax
 	iny
@@ -65,13 +64,11 @@ fretms	cpy lastpt+1
 	ldy #0
 frerts	rts
 chrd	jsr conint
-	txa
-	pha
+	phx
 	lda #1
 	jsr strspa
 	pla
-	ldy #0
-	sta (dsctmp+1),y
+	sta (dsctmp+1)
 	pla
 	pla
 	jmp putnew
@@ -154,8 +151,7 @@ len1	jsr frestr
 	rts
 asc	jsr len1
 	beq gofuc
-	ldy #0
-	lda (index1),y
+	lda (index1)
 	tay
 	jmp sngflt
 gofuc	jmp fcerr
