@@ -60,8 +60,7 @@ main1	jsr linget
 	lda lowtr+1
 	sta index2+1
 	lda lowtr
-	dey
-	sbc (lowtr),y 
+	sbc (lowtr)
 	clc
 	adc vartab
 	sta vartab
