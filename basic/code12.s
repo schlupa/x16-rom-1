@@ -58,9 +58,8 @@ lopfda	stx lowtr
 	bne lopfdv
 	cpx strend
 	beq notfdd
-lopfdv	ldy #0
-	lda (lowtr),y
-	iny
+lopfdv	lda (lowtr)
+	ldy #1
 	cmp varnam
 	bne nmary1
 	lda varnam+1
