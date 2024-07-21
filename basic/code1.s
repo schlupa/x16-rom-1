@@ -138,11 +138,10 @@ czloop	iny
 	tya
 	adc index
 	tax
-	ldy #0
-	sta (index),y
+	sta (index)
 	lda index+1
 	adc #0
-	iny
+	ldy #1
 	sta (index),y
 	stx index
 	sta index+1
