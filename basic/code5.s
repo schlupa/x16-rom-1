@@ -126,10 +126,9 @@ let	jsr ptrget
 qintgr	bpl copflt
 	jsr round
 	jsr ayint
-	ldy #0
 	lda facmo
-	sta (forpnt),y
-	iny
+	sta (forpnt)
+	ldy #1
 	lda faclo
 	sta (forpnt),y
 	rts
