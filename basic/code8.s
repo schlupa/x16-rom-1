@@ -72,8 +72,7 @@ varend	lda inpptr
 	ldx inpflg
 	bpl vary0
 	jmp resfin
-vary0	ldy #0
-	lda (inpptr),y
+vary0	lda (inpptr)
 	beq inprts
 	lda channl
 	bne inprts
