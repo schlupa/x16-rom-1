@@ -16,8 +16,7 @@ lpoper	pha
 	lda #1
 	jsr getstk
 	jsr eval
-	lda #0
-	sta opmask
+	stz opmask
 tstop	jsr chrgot
 loprel	sec
 	sbc #greatk
@@ -130,8 +129,7 @@ qoprts	lda facexp
 unprts	rts
 
 eval	jmp (ieval)
-neval	lda #0
-	sta valtyp
+neval	stz valtyp
 eval0	jsr chrget
 	bcs eval2
 eval1	jmp fin
@@ -236,8 +234,7 @@ chkcls	lda #41
 chkopn	lda #40
 	bra synchr
 chkcom	lda #44
-synchr	ldy #0
-	cmp (txtptr),y
+synchr	cmp (txtptr)
 	bne snerr
 	jmp chrget
 snerr	ldx #errsn
