@@ -145,8 +145,7 @@ qvaria	ldy faclo
 dntcpy	lda facmo
 	ldy facmo+1
 	jmp copyc
-copy	ldy #0
-	lda (facmo),y
+copy	lda (facmo)
 	jsr strini
 	lda dscpnt
 	ldy dscpnt+1
@@ -158,10 +157,9 @@ copy	ldy #0
 copyc	sta dscpnt
 	sty dscpnt+1
 	jsr fretms
-	ldy #0
-	lda (dscpnt),y
-	sta (forpnt),y
-	iny
+	lda (dscpnt)
+	sta (forpnt)
+	ldy #1
 	lda (dscpnt),y
 	sta (forpnt),y
 	iny
@@ -200,8 +198,7 @@ printc	beq prtrts
 	jsr strprt
 	jsr outspc
 	bne newchr
-fininl	lda #0
-	sta buf,x
+fininl	stz buf,x
 zz5=buf-1
 	ldx #<zz5
 	ldy #>zz5
