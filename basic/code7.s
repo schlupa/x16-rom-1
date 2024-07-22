@@ -56,8 +56,7 @@ zz2=buf+1
 gettty	ldx #<zz2
 zz3=buf+2
 	ldy #>zz3
-	lda #0
-	sta buf+1
+	stz buf+1
 	lda #64
 	jsr inpco1
 	ldx channl
@@ -72,8 +71,7 @@ inputn	jsr inpn10
 	jsr notqti
 iodone	lda channl
 iorele	jsr clschn
-	ldx #0
-	stx channl
+	stz channl
 	rts
 input	cmp #34
 	bne notqti
