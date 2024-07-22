@@ -5,8 +5,7 @@ newstt	jsr iscntc
 	beq dircon
 	sta oldtxt
 	sty oldtxt+1
-dircon	ldy #0
-	lda (txtptr),y
+dircon	lda (txtptr)
 	bne morsts
 	ldy #2
 	lda (txtptr),y
