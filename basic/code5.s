@@ -80,9 +80,8 @@ onglp1	jsr clnget
 	pla
 ongrts	rts
 clnget	jsr chrget
-linget	ldx #0
-	stx linnum
-	stx linnum+1
+linget	stz linnum
+	stz linnum+1
 morlin	bcs ongrts
 	sbc #$2f
 	sta charac
