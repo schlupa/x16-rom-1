@@ -150,8 +150,7 @@ sizeok	jsr strini
 	jsr fretmp
 	jsr putnew
 	jmp tstop
-movins	ldy #0
-	lda (strng1),y
+movins	lda (strng1)
 	pha
-	iny
+	ldy #1
 
